@@ -431,6 +431,10 @@ export default {
           if (!user_group) {
             user_group = "游客";
           }
+          console.log("user_group");
+
+          console.log(user_group);
+
           // 查询权限
           this.$get(
             "~/api/auth/get_list?",
@@ -440,6 +444,8 @@ export default {
             (json) => {
               // 清空权限
               this.$store.commit("set_auth", []);
+              console.log("json.result.list");
+              console.log(json.result);
 
               // 判断查询结果
               if (json.result && json.result.list) {

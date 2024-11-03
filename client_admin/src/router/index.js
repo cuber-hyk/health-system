@@ -72,6 +72,26 @@ const routes = [
     },
   },
 
+  // {
+  //   path: "/nav/table",
+  //   name: "nav_table",
+  //   component: () => import("../views/nav/table.vue"),
+  //   meta: {
+  //     index: 0,
+  //     title: "导航",
+  //     activeMenu: "/nav/table",
+  //   },
+  // },
+  // {
+  //   path: "/nav/view",
+  //   name: "nav_view",
+  //   component: () => import("../views/nav/view.vue"),
+  //   meta: {
+  //     index: 0,
+  //     title: "导航详情",
+  //     activeMenu: "/nav/view",
+  //   },
+  // },
   // 友情链接路由
   // {
   //   path: "/link/table",

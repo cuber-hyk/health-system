@@ -4,9 +4,56 @@
       label-position="right"
       :model="query"
       class="form p_4"
-      label-width="120"
+      size="small"
+      :inline="true"
+      label-width="70px"
+      style="padding: 0"
     >
-      <el-row>
+      <el-form-item label="食物分类">
+        <el-input v-model="query.food_classification"></el-input>
+      </el-form-item>
+
+      <el-form-item>
+        <el-button type="primary" @click="search()" class="search_btn_find"
+          >查询</el-button
+        >
+        <el-button @click="reset()" class="search_btn_reset">重置</el-button>
+        <router-link
+          v-if="
+            user_group == '管理员' || $check_action('/food_classification/view')
+          "
+          to="./view?"
+          ><el-button
+            class="el-button el-button--default el-button--primary search_btn_add"
+            >添加</el-button
+          >
+        </router-link>
+        <el-button
+          v-if="
+            user_group == '管理员' ||
+            $check_action('/food_classification/table', 'set')
+          "
+          :disabled="single"
+          class="search_btn_set"
+          type="success"
+          @click="handleUpdate"
+          >修改</el-button
+        >
+        <el-button
+          v-if="
+            user_group == '管理员' ||
+            $check_action('/food_classification/table', 'del') ||
+            $check_action('/food_classification/view', 'del')
+          "
+          class="search_btn_del"
+          type="danger"
+          :disabled="multiple"
+          @click="delInfo()"
+          >删除</el-button
+        >
+      </el-form-item>
+
+      <!-- <el-row>
         <el-col :xs="24" :sm="24" :lg="8" class="el_form_search_wrap">
           <el-form-item label="食物分类">
             <el-input v-model="query.food_classification"></el-input>
@@ -46,7 +93,7 @@
             >
           </el-form-item>
         </el-col>
-      </el-row>
+      </el-row> -->
     </el-form>
     <el-table
       :data="list"
@@ -55,7 +102,13 @@
       style="width: 100%"
       id="dataTable"
     >
-      <el-table-column fixed type="selection" tooltip-effect="dark" width="55">
+      <el-table-column
+        fixed
+        type="selection"
+        tooltip-effect="dark"
+        width="55"
+        align="center"
+      >
       </el-table-column>
       <el-table-column
         prop="food_classification"
@@ -65,6 +118,7 @@
           user_group == '管理员' || $check_field('get', 'food_classification')
         "
         min-width="200"
+        align="center"
       >
       </el-table-column>
 
@@ -73,6 +127,7 @@
         prop="create_time"
         label="创建时间"
         min-width="200"
+        align="center"
       >
         <template slot-scope="scope">
           {{ $toTime(scope.row["create_time"], "yyyy-MM-dd hh:mm:ss") }}
@@ -84,6 +139,7 @@
         prop="update_time"
         label="更新时间"
         min-width="200"
+        align="center"
       >
         <template slot-scope="scope">
           {{ $toTime(scope.row["update_time"], "yyyy-MM-dd hh:mm:ss") }}
@@ -94,6 +150,7 @@
         fixed="right"
         label="操作"
         min-width="120"
+        align="center"
         v-if="
           user_group == '管理员' ||
           $check_action('/food_classification/table', 'set') ||

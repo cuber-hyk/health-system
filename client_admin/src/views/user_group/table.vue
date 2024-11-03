@@ -21,7 +21,7 @@
 
         <el-button
           v-if="
-            user_group == '管理员' || $check_action('/article/table', 'set')
+            user_group == '管理员' || $check_action('/user_group/table', 'set')
           "
           :disabled="single"
           class="search_btn_set"

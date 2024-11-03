@@ -20,9 +20,7 @@
         <el-button @click="reset()" class="search_btn_reset">重置</el-button>
 
         <el-button
-          v-if="
-            user_group == '管理员' || $check_action('/article/table', 'set')
-          "
+          v-if="user_group == '管理员' || $check_action('/user/table', 'set')"
           :disabled="single"
           class="search_btn_set"
           type="success"

@@ -2,7 +2,7 @@
   <div class="page_root" id="root_index">
     <div class="warp">
       <div class="container-fluid">
-        <!-- <el-row>
+        <el-row>
           <el-col :span="4">
             <mm_label
               bg_color="bg_purple"
@@ -21,11 +21,17 @@
               title="文章浏览量"
             ></mm_label>
           </el-col>
-        </el-row> -->
+          <el-col :span="4">
+            <pie-chart></pie-chart>
+          </el-col>
+          <el-col :span="4">
+            <line-chart :id="lineChart" :title="折线图"></line-chart>
+          </el-col>
+        </el-row>
 
         <!-- <el-row> </el-row> -->
 
-        <article-table></article-table>
+        <!-- <article-table></article-table> -->
       </div>
     </div>
   </div>
@@ -39,6 +45,8 @@ import lineChart from "@/components/charts/line_chart";
 import newLineChart from "@/components/charts/new_line_chart";
 import mm_label from "@/components/mm_label.vue";
 import articleTable from "./article/table.vue";
+import Pie_chart from "../components/charts/pie_chart.vue";
+import Line_chart from "../components/charts/line_chart.vue";
 export default {
   mixins: [mixin],
   name: "Home",
@@ -50,6 +58,8 @@ export default {
     newLineChart,
     mm_label,
     articleTable,
+    Pie_chart,
+    Line_chart,
   },
   data() {
     return {

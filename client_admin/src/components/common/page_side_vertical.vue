@@ -32,9 +32,13 @@
       <template slot="title"
         ><i class="el-icon-data-board"></i><span>网站管理</span></template
       >
-      <!-- <el-menu-item v-show="user_group == '管理员' || $check_action('/auth/table')" index="/auth/table">
-				<span>权限管理</span>
-			</el-menu-item> -->
+      <!-- <el-menu-item
+        v-show="user_group == '管理员' || $check_action('/auth/table')"
+        index="/auth/table"
+        @click="clickMenu('auth_table', '权限管理')"
+      >
+        <span>权限管理</span>
+      </el-menu-item> -->
       <!-- <el-menu-item
         v-show="user_group == '管理员' || $check_action('/link/table')"
         index="/link/table"
@@ -42,6 +46,7 @@
       >
         <span>友情链接</span>
       </el-menu-item> -->
+
       <el-menu-item
         v-show="user_group == '管理员' || $check_action('/slides/table')"
         index="/slides/table"
@@ -49,6 +54,14 @@
       >
         <span>轮播图</span>
       </el-menu-item>
+
+      <!-- <el-menu-item
+        v-show="user_group == '管理员' || $check_action('/media/video')"
+        index="/media/video"
+        @click="clickMenu('video', '视频')"
+      >
+        <span>视频</span>
+      </el-menu-item> -->
       <!-- <el-menu-item v-show="user_group == '管理员' || $check_action('/ad/table')" index="/ad/table">
 				<span>广告</span>
 			</el-menu-item> -->
@@ -58,6 +71,41 @@
         @click="clickMenu('notice_table', '公告信息')"
       >
         <span>公告信息</span>
+      </el-menu-item>
+    </el-submenu>
+
+    <el-submenu
+      index="content"
+      v-show="
+        $check_group(['/article/table', '/article_type/table', '/exam/table'])
+      "
+    >
+      <template slot="title"
+        ><i class="el-icon-chat-line-round"></i><span>内容管理</span></template
+      >
+      <el-menu-item
+        v-show="user_group == '管理员' || $check_action('/article/table')"
+        index="/article/table"
+        @click="clickMenu('article_table', '文章')"
+      >
+        <!-- <span>文章</span> -->
+        <span>{{ $page_title("/article/table") || "文章" }}</span>
+      </el-menu-item>
+      <el-menu-item
+        v-show="user_group == '管理员' || $check_action('/article_type/table')"
+        index="/article_type/table"
+        @click="clickMenu('article_type_table', '文章分类')"
+      >
+        <!-- <span>文章类型</span> -->
+        <span>{{ $page_title("/article_type/table") || "文章分类" }}</span>
+      </el-menu-item>
+
+      <el-menu-item
+        v-show="user_group == '管理员' || $check_action('/comment/table')"
+        index="/comment/table"
+        @click="clickMenu('comment_table', '评论')"
+      >
+        <span>{{ $page_title("/comment/table") || "评论" }}</span>
       </el-menu-item>
     </el-submenu>
 
@@ -96,39 +144,34 @@
       >
     </el-submenu>
 
-    <el-menu-item
-      index="/food_information/table"
-      v-show="user_group == '管理员'"
-      @click="clickMenu('food_information_table', '食品信息')"
-    >
-      <i class="el-icon-potato-strips"></i>
-      <span>食品信息</span>
-    </el-menu-item>
-
     <el-submenu
-      index="content"
+      index="food"
       v-show="
-        $check_group(['/article/table', '/article_type/table', '/exam/table'])
+        user_group == '管理员' ||
+        $check_group(['/food_information/table', '/food_classification/table'])
       "
     >
       <template slot="title"
-        ><i class="el-icon-chat-line-round"></i><span>内容管理</span></template
+        ><i class="el-icon-potato-strips"></i><span>食品管理</span></template
       >
       <el-menu-item
-        v-show="user_group == '管理员' || $check_action('/article/table')"
-        index="/article/table"
-        @click="clickMenu('article_table', '文章')"
+        v-show="
+          user_group == '管理员' || $check_action('/food_information/table')
+        "
+        index="/food_information/table"
+        @click="clickMenu('food_information_table', '食品信息')"
       >
-        <!-- <span>文章</span> -->
-        <span>{{ $page_title("/article/table") || "文章" }}</span>
+        <span>食品信息</span>
       </el-menu-item>
+
       <el-menu-item
-        v-show="user_group == '管理员' || $check_action('/article_type/table')"
-        index="/article_type/table"
-        @click="clickMenu('article_type_table', '文章分类')"
+        v-show="
+          user_group == '管理员' || $check_action('/food_classification/table')
+        "
+        index="/food_classification/table"
+        @click="clickMenu('food_classification_table', '食品类别')"
       >
-        <!-- <span>文章类型</span> -->
-        <span>{{ $page_title("/article_type/table") || "文章分类" }}</span>
+        <span>食品类别</span>
       </el-menu-item>
     </el-submenu>
 

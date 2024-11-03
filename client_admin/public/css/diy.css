@@ -1684,7 +1684,7 @@ tbody tr:hover {
   padding-bottom: 80px;
 }
 #app .item-ltb {
-  display: none;
+  /* display: none; */
 }
 #app thead tr th {
   background-color: #66b9bf;

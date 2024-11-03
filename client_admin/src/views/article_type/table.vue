@@ -4,9 +4,54 @@
       label-position="right"
       :model="query"
       class="form p_4"
-      label-width="120"
+      size="small"
+      :inline="true"
+      label-width="70px"
+      style="padding: 0"
     >
-      <el-row>
+      <el-form-item label="类型名称">
+        <el-input v-model="query.name"></el-input>
+      </el-form-item>
+
+      <el-form-item>
+        <el-button type="primary" @click="search()" class="search_btn_find"
+          >查询</el-button
+        >
+        <el-button @click="reset()" class="search_btn_reset">重置</el-button>
+
+        <el-button
+          v-if="
+            user_group == '管理员' || $check_action('/article/table', 'set')
+          "
+          :disabled="single"
+          class="search_btn_set"
+          type="success"
+          @click="handleUpdate"
+          >修改</el-button
+        >
+
+        <el-button
+          v-if="
+            user_group == '管理员' ||
+            $check_action('/article_type/table', 'del')
+          "
+          class="search_btn_del"
+          type="danger"
+          :disabled="multiple"
+          @click="delInfo()"
+          >删除</el-button
+        >
+        <router-link
+          v-if="user_group == '管理员' || $check_action('/article_type/view')"
+          to="./view?"
+          ><el-button
+            class="el-button el-button--default el-button--primary search_btn_add"
+            >添加</el-button
+          >
+        </router-link>
+      </el-form-item>
+
+      <!-- <el-row>
         <el-col :xs="24" :sm="24" :lg="8" class="el_form_search_wrap">
           <el-form-item label="类型名称">
             <el-input v-model="query.name"></el-input>
@@ -47,12 +92,8 @@
               </router-link>
             </el-form-item>
           </el-col>
-          <!-- <el-col :xs="24" :sm="12" :lg="12" class="search_btn_2">
-						<el-form-item>
-						</el-form-item>
-					</el-col> -->
         </el-col>
-      </el-row>
+      </el-row> -->
     </el-form>
     <el-table
       :data="list"
