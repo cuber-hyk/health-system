@@ -99,14 +99,32 @@
       style="width: 100%"
     >
       <!-- 多选按钮 -->
-      <el-table-column fixed type="selection" tooltip-effect="dark" width="55">
+      <el-table-column
+        fixed
+        type="selection"
+        tooltip-effect="dark"
+        width="55"
+        align="center"
+      >
       </el-table-column>
       <!-- /多选按钮 -->
 
-      <el-table-column sortable fixed label="昵称" prop="nickname" width="200">
+      <el-table-column
+        sortable
+        fixed
+        label="昵称"
+        prop="nickname"
+        width="200"
+        align="center"
+      >
       </el-table-column>
 
-      <el-table-column label="头像" prop="avatar" min-width="110">
+      <el-table-column
+        label="头像"
+        prop="avatar"
+        min-width="110"
+        align="center"
+      >
         <template slot-scope="scope">
           <el-avatar
             style="width: 80px; height: 80px"
@@ -119,7 +137,13 @@
         </template>
       </el-table-column>
 
-      <el-table-column sortable label="评论人" prop="user_id" min-width="100">
+      <el-table-column
+        sortable
+        label="评论人"
+        prop="user_id"
+        min-width="100"
+        align="center"
+      >
         <template slot-scope="scope">
           {{ list_user.getVal("nickname", { user_id: scope.row.user_id }) }}
         </template>
@@ -130,6 +154,7 @@
         prop="create_time"
         label="创建时间"
         min-width="200"
+        align="center"
       >
         <template slot-scope="scope">
           {{ $toTime(scope.row["create_time"], "yyyy-MM-dd hh:mm:ss") }}
@@ -141,6 +166,7 @@
         prop="update_time"
         label="更新时间"
         min-width="200"
+        align="center"
       >
         <template slot-scope="scope">
           {{ $toTime(scope.row["update_time"], "yyyy-MM-dd hh:mm:ss") }}
@@ -148,7 +174,7 @@
       </el-table-column>
 
       <!-- 操作 -->
-      <el-table-column fixed="right" label="操作" width="250">
+      <el-table-column fixed="right" label="操作" width="250" align="center">
         <template slot-scope="scope">
           <router-link
             class="el-button el-button--small is-plain el-button--primary"

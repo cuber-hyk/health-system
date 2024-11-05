@@ -268,6 +268,7 @@ export default {
 }
 .el-menu {
   height: 100vh;
+  overflow: auto;
   border-right: none;
 }
 </style>

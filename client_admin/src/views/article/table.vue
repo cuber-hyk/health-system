@@ -228,7 +228,7 @@
               user_group == '管理员' || $check_action('/article/table', 'set')
             "
             class="el-button el-button--small is-plain el-button--primary"
-            :to="'./article/view?' + field + '=' + scope.row[field]"
+            :to="'./view?' + field + '=' + scope.row[field]"
             size="small"
           >
             详情

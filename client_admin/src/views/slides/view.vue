@@ -23,23 +23,23 @@
         </el-form-item>
       </el-col>
 
-      <!--<el-col :xs="24" :sm="12" :lg="8" class="el_form_item_warp">-->
-      <!--<el-form-item label="内容" prop="content">-->
-      <!--<el-input v-model="form.content" placeholder="请输入昵称"></el-input>-->
-      <!--</el-form-item>-->
-      <!--</el-col>-->
+      <el-col :xs="24" :sm="12" :lg="8" class="el_form_item_warp">
+        <el-form-item label="内容" prop="content">
+          <el-input v-model="form.content" placeholder="请输入昵称"></el-input>
+        </el-form-item>
+      </el-col>
 
-      <!--<el-col :xs="24" :sm="12" :lg="8" class="el_form_item_warp">-->
-      <!--<el-form-item label="链接" prop="url">-->
-      <!--<el-input v-model="form.url" placeholder="请输入链接"></el-input>-->
-      <!--</el-form-item>-->
-      <!--</el-col>-->
+      <el-col :xs="24" :sm="12" :lg="8" class="el_form_item_warp">
+        <el-form-item label="链接" prop="url">
+          <el-input v-model="form.url" placeholder="请输入链接"></el-input>
+        </el-form-item>
+      </el-col>
 
-      <!--<el-col :xs="24" :sm="12" :lg="8" class="el_form_item_warp">-->
-      <!--<el-form-item label="点击量" prop="hits">-->
-      <!--<el-input-number v-model="form.hits"></el-input-number>-->
-      <!--</el-form-item>-->
-      <!--</el-col>-->
+      <el-col :xs="24" :sm="12" :lg="8" class="el_form_item_warp">
+        <el-form-item label="点击量" prop="hits">
+          <el-input-number v-model="form.hits"></el-input-number>
+        </el-form-item>
+      </el-col>
 
       <el-col :xs="24" :sm="24" :lg="24" class="el_form_btn_warp">
         <el-form-item>
@@ -128,15 +128,15 @@ export default {
 .avatar-uploader-icon {
   font-size: 28px;
   color: #8c939d;
-  width: 178px;
-  height: 178px;
-  line-height: 178px;
+  width: 400px;
+  height: auto;
+  /* line-height: 178px; */
   text-align: center;
 }
 
 .avatar {
-  width: 178px;
-  height: 178px;
+  width: 400px;
+  height: auto;
   display: block;
 }
 </style>

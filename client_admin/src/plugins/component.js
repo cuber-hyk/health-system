@@ -601,9 +601,9 @@ export default {
          * @param {String} path 路由路径
          */
         $page_title(path) {
-          console.log(111111);
-          console.log(path);
-          console.log(this.$get_power);
+          // console.log(111111);
+          // console.log(path);
+          // console.log(this.$get_power);
           var o = this.$get_power(path);
           if (o) {
             return o.page_title || o.mod_name;

@@ -71,19 +71,8 @@
 
       <el-col :xs="24" :sm="24" :lg="24" class="el_form_btn_warp">
         <el-form-item>
-          <el-col :xs="24" :sm="24" :lg="12" class="el_form_btn el_form_btn_1">
-            <el-button
-              style="width: 100%; float: left"
-              type="primary"
-              @click="submit()"
-              >提交</el-button
-            >
-          </el-col>
-          <el-col :xs="24" :sm="24" :lg="12" class="el_form_btn el_form_btn_2">
-            <el-button style="width: 100%; float: right" @click="cancel()"
-              >取消</el-button
-            >
-          </el-col>
+          <el-button type="primary" @click="submit()">提交</el-button>
+          <el-button @click="cancel()">取消</el-button>
         </el-form-item>
       </el-col>
     </el-form>

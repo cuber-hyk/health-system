@@ -187,6 +187,11 @@ export default {
   color: #fff;
 }
 
+::v-deep .el-form-item .el-form-item__label {
+  font-size: 18px;
+  line-height: 55px;
+}
+
 .sign_in .form:after {
   content: "";
   position: absolute;

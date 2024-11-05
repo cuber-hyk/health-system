@@ -70,20 +70,24 @@
     </el-form>
 
     <el-table
-      border
       :data="list"
       @selection-change="selectionChange"
       @sort-change="$sortChange"
       style="width: 100%"
       max-height="560"
-      stripe
     >
       <!-- 多选按钮 -->
-      <el-table-column fixed type="selection" tooltip-effect="dark" width="55">
+      <el-table-column
+        fixed
+        type="selection"
+        tooltip-effect="dark"
+        width="55"
+        align="center"
+      >
       </el-table-column>
       <!-- /多选按钮 -->
 
-      <el-table-column label="轮播图" prop="img" min-width="110">
+      <el-table-column label="轮播图" prop="img" min-width="110" align="center">
         <template slot-scope="scope">
           <el-image style="height: 100px" :src="scope.row.img">
             <div slot="error" class="image-slot">
@@ -96,20 +100,37 @@
         </template>
       </el-table-column>
 
-      <el-table-column label="标题" prop="title" sortable min-width="100">
+      <el-table-column
+        label="标题"
+        prop="title"
+        sortable
+        min-width="100"
+        align="center"
+      >
       </el-table-column>
 
-      <!--<el-table-column label="正文" prop="content" min-width="200">
-			</el-table-column>
+      <el-table-column
+        label="正文"
+        prop="content"
+        min-width="200"
+        align="center"
+      >
+      </el-table-column>
 
-			<el-table-column label="链接" prop="url" min-width="100">
-			</el-table-column>
+      <el-table-column label="链接" prop="url" min-width="100" align="center">
+      </el-table-column>
 
-			<el-table-column label="点击量" prop="hits" sortable min-width="100">
-			</el-table-column>-->
+      <el-table-column
+        label="点击量"
+        prop="hits"
+        sortable
+        min-width="100"
+        align="center"
+      >
+      </el-table-column>
 
       <!-- 操作 -->
-      <el-table-column fixed="right" label="操作" width="80">
+      <el-table-column fixed="right" label="操作" width="80" align="center">
         <template slot-scope="scope">
           <router-link
             class="el-button el-button--small is-plain el-button--primary"

@@ -712,7 +712,7 @@
   .geetest_box_title {
   width: 100px !important;
   font-size: 22px;
-  margin-left: -5px;
+  margin-left: -25px;
   color: #07889b !important;
   margin-top: 18px !important;
   font-weight: 700 !important;
@@ -727,7 +727,7 @@
   .geetest_box
   .geetest_box_content {
   margin-left: 110px;
-  margin-top: -20px;
+  margin-top: -34px;
 }
 #app
   .page

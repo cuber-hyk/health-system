@@ -11,7 +11,7 @@
         <page-side-vertical></page-side-vertical>
       </el-aside>
 
-      <el-container>
+      <el-container style="height: 100vh; overflow: auto">
         <el-header style="height: auto; padding: 0px">
           <page_header />
         </el-header>
@@ -96,7 +96,8 @@ input[type="number"] {
 /* } */
 
 .avatar-uploader .el-upload-dragger {
-  width: 178px;
+  /* width: 178px; */
+  width: 400px;
 }
 
 table a {
