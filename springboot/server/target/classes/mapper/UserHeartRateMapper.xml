@@ -5,11 +5,11 @@
 <mapper namespace="com.project.demo.dao.UserHeartRateMapper">
 
     <resultMap type="com.project.demo.entity.UserHeartRate" id="UserHeartRateResult">
-        <result property="userHeartRateId" column="user_heart_rate_id" />
-        <result property="userId" column="user_id" />
-        <result property="heartRate" column="heart_rate" />
+        <result property="user_heart_rate_id" column="user_heart_rate_id" />
+        <result property="user_id" column="user_id" />
+        <result property="heart_rate" column="heart_rate" />
         <result property="createTime" column="create_time" />
-        <result property="additionalInfo" column="additional_info" />
+        <result property="additional_info" column="additional_info" />
     </resultMap>
 
     <sql id="selectUserHeartRateVo">
