@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.demo.dao.UserHeartRateMapper">
+
+    <resultMap type="com.project.demo.entity.UserHeartRate" id="UserHeartRateResult">
+        <result property="userHeartRateId" column="user_heart_rate_id" />
+        <result property="userId" column="user_id" />
+        <result property="heartRate" column="heart_rate" />
+        <result property="createTime" column="create_time" />
+        <result property="additionalInfo" column="additional_info" />
+    </resultMap>
+
+    <sql id="selectUserHeartRateVo">
+        select user_heart_rate_id, user_id, heart_rate, create_time, additional_info from user_heart_rate
+    </sql>
+
+    <select id="selectUserHeartRateList" parameterType="com.project.demo.entity.UserHeartRate" resultMap="UserHeartRateResult">
+        <include refid="selectUserHeartRateVo"/>
+        <where>
+            <if test="userId != null"> and user_id = #{userId}</if>
+            <if test="heartRate != null"> and heart_rate = #{heartRate}</if>
+            <if test="additionalInfo != null and additionalInfo != ''"> and additional_info = #{additionalInfo}</if>
+        </where>
+    </select>
+
+    <select id="selectUserHeartRateById" parameterType="Integer" resultMap="UserHeartRateResult">
+        <include refid="selectUserHeartRateVo"/>
+        where user_heart_rate_id = #{userHeartRateId}
+    </select>
+
+    <insert id="insertUserHeartRate" parameterType="com.project.demo.entity.UserHeartRate" useGeneratedKeys="true" keyProperty="userHeartRateId">
+        insert into user_heart_rate
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">user_id,</if>
+            <if test="heartRate != null">heart_rate,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="additionalInfo != null and additionalInfo != ''">additional_info,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">#{userId},</if>
+            <if test="heartRate != null">#{heartRate},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="additionalInfo != null and additionalInfo != ''">#{additionalInfo},</if>
+        </trim>
+    </insert>
+
+    <update id="updateUserHeartRate" parameterType="com.project.demo.entity.UserHeartRate">
+        update user_heart_rate
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="heartRate != null">heart_rate = #{heartRate},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="additionalInfo != null and additionalInfo != ''">additional_info = #{additionalInfo},</if>
+        </trim>
+        where user_heart_rate_id = #{userHeartRateId}
+    </update>
+
+    <delete id="deleteUserHeartRateById" parameterType="Integer">
+        delete from user_heart_rate where user_heart_rate_id = #{userHeartRateId}
+    </delete>
+
+    <delete id="deleteUserHeartRateByIds" parameterType="String">
+        delete from user_heart_rate where user_heart_rate_id in
+        <foreach item="userHeartRateId" collection="array" open="(" separator="," close=")">
+            #{userHeartRateId}
+        </foreach>
+    </delete>
+
+</mapper>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/server/project-spring_boot.iml" filepath="$PROJECT_DIR$/server/project-spring_boot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/springboot健康饮食推荐系统.iml" filepath="$PROJECT_DIR$/.idea/springboot健康饮食推荐系统.iml" />
+    </modules>
+  </component>
+</project>

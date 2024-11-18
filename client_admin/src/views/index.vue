@@ -151,11 +151,6 @@ export default {
   },
   mounted() {},
   methods: {
-    // init_pie_data() {
-    //   this.get_food_types();
-
-    //   // });
-    // },
     async get_nickname(list, flag) {
       if (flag) {
         for (let i = 0; i < list.length; i++) {
