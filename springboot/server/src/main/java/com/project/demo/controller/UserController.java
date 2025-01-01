@@ -26,7 +26,7 @@ import java.util.*;
  */
 @Slf4j
 @RestController // 注解，表明这是一个controller,不会走视图解析器  而Controller会走视图解析器
-@RequestMapping("user")
+@RequestMapping("user") // http://
 public class UserController extends BaseController<User, UserService> {
     /**
      * 服务对象
